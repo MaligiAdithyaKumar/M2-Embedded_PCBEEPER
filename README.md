@@ -5,3 +5,19 @@
 [![Cppcheck](https://github.com/MaligiAdithyaKumar/M2-Embedded_PCBEEPER/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/MaligiAdithyaKumar/M2-Embedded_PCBEEPER/actions/workflows/cppcheck.yml)
 
 [![Build Status](https://github.com/MaligiAdithyaKumar/M2-Embedded_PCBEEPER/actions/workflows/compile.yml/badge.svg)](https://github.com/MaligiAdithyaKumar/M2-Embedded_PCBEEPER/actions/workflows/compile.yml)
+
+## Folder Structure
+Folder             | Description
+-------------------| -----------------------------------------
+`1_Requirements`   | Documents detailing requirements and research
+`2_Design`         | Documents specifying design details
+`3_Implementation` | All code and documentation
+`4_Test_plan`      | Documents with test plans and procedures
+`5_Report`         | Documentation of whole project
+`6_Images`         | All the output images of this project
+
+# Contributors List and Summary
+
+| PS No. | Name | Issues Raised | Issues Resolved |
+|---|---|---|---|
+| `40020514` | Franklin Cedric J | 2 | 2 |

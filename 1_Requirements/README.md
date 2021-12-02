@@ -1,4 +1,4 @@
-# Fire Alarm System
+# Fire Alarm System using AVR Microcontroller
 
 ## Intoduction
 
@@ -28,8 +28,8 @@ Depending upon the project how well it is built and all the requirements will me
 
 # SWOT Analysis
 ## Strengths
-1. Cost Advantage.
-2. It can prevent from fire accidents
+1. Low Cost.
+2. It Alert users from fire accidents
 
 ## Threats
 1. Advanced featured fire alram systems are already in the market.
@@ -37,7 +37,7 @@ Depending upon the project how well it is built and all the requirements will me
 
 # 4W's and 1 H's
 ## Why:
-1. To reduce the fire accidents in House and Industries.
+1. To reduce the fire accidents in House, Industries and public places.
 2. It can be used at one place.
 
 ## Where:

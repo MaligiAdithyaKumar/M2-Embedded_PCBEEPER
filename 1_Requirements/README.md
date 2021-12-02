@@ -1,4 +1,4 @@
-# Fire Alarm System using AVR Microcontroller
+# Fire Security Alarm System using AVR Microcontroller
 
 ## Intoduction
 

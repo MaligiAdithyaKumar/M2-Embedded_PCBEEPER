@@ -1,52 +1,90 @@
-PROJ_NAME = Fire
+/**
+ * @file main.c
+ * @author Franklin Cedric
+ * @brief 
+ * @version 0.1
+ * @date 2021-12-01
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+#include <avr/io.h>
+#include "header.h"
 
-BUILD_DIR = Build
+//header to enable data flow control over pins
 
-# All Source code files
-SRC = main.c
+#define F_CPU 1000000    
 
-# All header file paths
-INC = -I inc
+//telling controller crystal frequency attached
 
-# Find out the OS and configure the variables accordingly
-ifdef OS	# All configurations for Windwos OS
-# Correct the path based on OS
-   FixPath = $(subst /,\,$1)
-# Name of the compiler used
-   CC = avr-gcc.exe
-# Name of the elf to hex file converter used
-   AVR_OBJ_CPY = avr-objcopy.exe
-else #All configurations for Linux OS
-   ifeq ($(shell uname), Linux)
-# Correct the path based on OS
-      FixPath = $1				
-# Name of the compiler used
-	  CC = avr-gcc
-# Name of the elf to hex file converter used
-	  AVR_OBJ_CPY = avr-objcopy 
-   endif
-endif
+#include <util/delay.h>
 
-# Command to make to consider these names as targets and not as file names in folder
-.PHONY:all analysis clean doc
+//header to enable delay function in program
 
-all:$(BUILD_DIR)
-# Compile the code and generate the ELF file
-	$(CC) -g -Wall -Os -mmcu=atmega8  $(INC) $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
+int main(void)
 
-$(BUILD_DIR):
-# Create directory to store the built files
-	mkdir $(BUILD_DIR)
+{
 
-analysis: $(SRC)
-# Analyse the code using Cppcheck command line utility
-	cppcheck --enable=all $^
+                                DDRB = 0xFF;
 
-doc:
-# Build the code code documentation using Doxygen command line utility
-	make -C documentation
+                             //putting portb as ouput. PWM0 ouput pin is at 3
 
-clean:
-# Remove all the build files and generated document files
-	rm -rf $(call FixPath,$(BUILD_DIR)/*)
-	make -C documentation clean
+                                DDRD = 0x00;
+
+                             //taking portd as input for input commands from buttons.             
+
+                TCCR1A |=(1<<WGM11)|(1<<COM1A1)|(1<<COM1A0);
+
+                TCCR1B |=(1<<WGM12)|(1<<WGM13)|(1<<CS10);
+
+                ICR1 =19999;    
+
+while (1)
+       {
+           int i;
+
+                          if (i<500)
+
+                        {
+
+                                    OCR1A = 19999-600;//for every 500ms move servo to 180
+
+                        }
+
+                                    i++;
+
+                        _delay_ms(1);
+
+                        if (bit_is_set(PIND,0))
+
+                        {
+
+                                    PORTB|=(1<<PINB2);//is fire is sensed set the alarm.
+
+                        }
+
+                        if (bit_is_clear(PIND,1))
+
+                        {
+
+                                    PORTB&=~(1<<PINB2);
+
+                        }
+
+                        if ((i<1000)&&(i>500))
+
+                        {
+
+                                    OCR1A = 19999-2400; // for every 500ms move servo to 0
+
+                        }
+
+                        if (i==1000)
+
+                        {
+
+                                    i=0;
+
+                        }
+
+            }}

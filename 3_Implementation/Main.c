@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @author Franklin Cedric
+ * @author Maligi Adithya Kumar
  * @brief 
  * @version 0.1
  * @date 2021-12-01
